@@ -3,174 +3,154 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#172554">
-<title>CAU English Vocabulary · Units 6–8 · 컴퓨터와 단어 대결</title>
+<meta name="theme-color" content="#14532d">
+<title>CAU English Vocabulary · Units 6–8 · 단어 슈팅 대결</title>
 <style>
-:root{--navy:#172554;--blue:#3157c8;--blue-soft:#e9efff;--orange:#e46a1f;--orange-soft:#fff0e4;--sky:#eef4ff;--ink:#182033;--muted:#68738a;--line:#dce3ef;--green:#13804b;--red:#c83d4d;--gold:#ffca5c}
+:root{--navy:#172554;--blue:#3157c8;--ink:#182033;--muted:#68738a;--line:#dce3ef;--green:#13804b;--red:#c83d4d;--gold:#ffca5c;--pitch:#3a9a47}
 *{box-sizing:border-box}
-body{margin:0;background:linear-gradient(150deg,#f4f7ff,#fff9ed);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh;padding:20px}
-.app{max-width:1180px;margin:auto}
-.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:4px 0 16px}.brand{color:var(--navy);font-weight:900;letter-spacing:.08em;font-size:.83rem}.top small{color:var(--muted)}
-.hero{background:var(--navy);color:white;border-radius:24px;padding:26px 30px;box-shadow:0 16px 36px #17255420;position:relative;overflow:hidden}
-.hero h1{font-size:clamp(1.55rem,4vw,2.25rem);margin:0 0 8px}.hero p{margin:0;color:#d8e2ff;line-height:1.6;max-width:640px}
-.badge{display:inline-flex;background:#ffffff20;border:1px solid #ffffff42;padding:5px 10px;border-radius:999px;font-size:.8rem;margin-bottom:12px}
-.hero .vsmark{position:absolute;right:28px;top:50%;transform:translateY(-50%);font-size:4.5rem;font-weight:950;opacity:.14;letter-spacing:-.04em}
+body{margin:0;background:linear-gradient(150deg,#effaf1,#fff9ed);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh;padding:18px}
+.app{max-width:960px;margin:auto}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:2px 0 14px}.brand{color:#14532d;font-weight:900;letter-spacing:.08em;font-size:.83rem}.top small{color:var(--muted)}
+.hero{background:linear-gradient(120deg,#14532d,#1d6b3a);color:white;border-radius:24px;padding:24px 28px;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(1.5rem,4vw,2.2rem);margin:0 0 8px}.hero p{margin:0;color:#d6f5de;line-height:1.6;max-width:620px}
+.hero .big{position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:5rem;opacity:.25}
+.badge{display:inline-flex;background:#ffffff22;border:1px solid #ffffff44;padding:5px 10px;border-radius:999px;font-size:.8rem;margin-bottom:10px}
 .panel{background:white;border:1px solid var(--line);border-radius:20px;padding:22px;margin-top:16px;box-shadow:0 8px 24px #1725540a}
-.names{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:end;margin-bottom:18px}
-.names .vs{font-weight:950;color:var(--muted);padding-bottom:12px}
-.field label{display:block;font-weight:750;font-size:.9rem;margin-bottom:7px}
-.field select,.field input{width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);font:inherit}
-.field.p1 input{border:2px solid #b9c8f5;background:var(--blue-soft)}.field.p2 input{border:2px solid #f5c9a8;background:var(--orange-soft)}
-.field.p1 label{color:var(--blue)}.field.p2 label{color:var(--orange)}
-.setup-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}.row-title{font-weight:800;min-width:80px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chips button{background:#f3f5fa;border:1.5px solid var(--line);color:var(--ink);padding:10px 14px;border-radius:12px;font-weight:750}
+.chips button.on{background:#14532d;border-color:#14532d;color:white}
+.setup-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.field-f label{display:block;font-weight:750;font-size:.9rem;margin-bottom:7px}
+.field-f select,.field-f input{width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);font:inherit}
 button{font:inherit;cursor:pointer;border:0}
-.primary{background:var(--blue);color:white;padding:13px 20px;border-radius:12px;font-weight:800;box-shadow:0 5px 12px #3157c830}.primary:hover{background:#2548b0}.primary:disabled{opacity:.5;cursor:default}
-.secondary{background:var(--sky);color:var(--navy);padding:10px 14px;border-radius:11px;font-weight:750}
+.primary{background:#1d7a3e;color:white;padding:13px 20px;border-radius:12px;font-weight:800;box-shadow:0 5px 12px #1d7a3e40}.primary:hover{background:#166232}
+.secondary{background:#eef4ff;color:var(--navy);padding:10px 14px;border-radius:11px;font-weight:750}
 .start-row{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:18px}.hint{color:var(--muted);font-size:.9rem;line-height:1.55}
 .hint kbd{background:#f1f4fa;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px;font-size:.82rem;font-family:inherit}
 .hidden{display:none!important}
-.opp-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}.opp-title{font-weight:800}
-.opp{display:flex;gap:8px;flex-wrap:wrap}.opp button{background:#f3f5fa;border:1.5px solid var(--line);color:var(--ink);padding:10px 14px;border-radius:12px;font-weight:750}
-.opp button.on{background:var(--navy);border-color:var(--navy);color:white}
-.field input:disabled{opacity:.75}
-.thinking::after{content:"";display:inline-block;width:1em;text-align:left;animation:dots 1s steps(4) infinite}
+
+/* scoreboard */
+.board{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.score{display:flex;align-items:center;gap:14px;background:#0f1b2d;color:white;border-radius:16px;padding:8px 16px;font-weight:900}
+.score .nm{font-size:.92rem;opacity:.9;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.score .n{font-size:1.9rem;min-width:30px;text-align:center}
+.score .n.me{color:#7fe3a0}.score .n.cpu{color:#ff9d8a}
+.score .sep{opacity:.5}
+.score .n.bump{animation:bump .5s}
+@keyframes bump{40%{transform:scale(1.5)}}
+.target{color:var(--muted);font-weight:750;font-size:.9rem;text-align:center}
+.goaldots{display:flex;gap:4px;justify-content:center;margin-top:4px}
+.goaldots i{width:10px;height:10px;border-radius:50%;background:#dfe5ee}.goaldots i.me{background:#22a35a}.goaldots i.cpu{background:#e8604c}
+
+/* pitch */
+.pitch{position:relative;height:min(64vh,500px);min-height:420px;border-radius:22px;overflow:hidden;background:repeating-linear-gradient(180deg,#40a24e 0 46px,#389545 46px 92px);box-shadow:inset 0 0 0 4px #ffffff55,0 10px 26px #14532d30;user-select:none}
+.pitch.shake{animation:shake .45s}
+@keyframes shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.box{position:absolute;left:16%;right:16%;top:0;height:40%;border:3px solid #ffffffa8;border-top:0}
+.spotmark{position:absolute;left:50%;top:58%;width:8px;height:8px;border-radius:50%;background:#ffffffc0;transform:translate(-50%,-50%)}
+.goal{position:absolute;left:27%;right:27%;top:14px;height:24%;border:6px solid white;border-bottom:0;border-radius:6px 6px 0 0;background:repeating-linear-gradient(45deg,#ffffff38 0 2px,transparent 2px 13px),repeating-linear-gradient(-45deg,#ffffff38 0 2px,transparent 2px 13px),#2c7a39;box-shadow:0 6px 12px #0003}
+.goal.flash{animation:netflash .8s}
+@keyframes netflash{30%{background-color:#ffe36e}}
+.keeper{position:absolute;bottom:-6px;left:50%;width:62px;height:78px;transform:translateX(-50%);transition:transform .38s cubic-bezier(.2,.9,.3,1.2);z-index:2}
+.keeper .k-in{width:100%;height:100%;animation:sway 1.6s ease-in-out infinite;position:relative}
+.keeper.dived .k-in{animation:none}
+@keyframes sway{50%{transform:translateX(10px)}}
+.k-head{position:absolute;left:50%;top:0;transform:translateX(-50%);font-size:30px;line-height:1}
+.k-body{position:absolute;left:50%;top:30px;transform:translateX(-50%);width:36px;height:40px;border-radius:12px 12px 6px 6px;background:#ff8a2a;border:3px solid #fff}
+.k-glove{position:absolute;top:28px;font-size:22px}.k-glove.l{left:-12px}.k-glove.r{right:-12px;transform:scaleX(-1)}
+.question{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fffffff0;border-radius:18px;padding:12px 22px;text-align:center;max-width:88%;box-shadow:0 8px 20px #0002;z-index:1}
+.q-label{font-size:.8rem;color:var(--muted);margin-bottom:4px}
+.q-word{font-size:clamp(1.3rem,4vw,2rem);font-weight:900;color:var(--navy);overflow-wrap:anywhere}
+.timer{position:absolute;left:16px;right:16px;top:auto;bottom:6px;height:7px;background:#ffffff40;border-radius:99px;overflow:hidden}
+.timer span{display:block;height:100%;width:100%;background:linear-gradient(90deg,#ffe36e,#ff8a5c)}
+.balls{position:absolute;bottom:24px;left:0;right:0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 10px;z-index:3}
+.ball{display:flex;flex-direction:column;align-items:center;gap:6px;background:none;color:white;padding:0}
+.ball .orb{font-size:54px;line-height:1;filter:drop-shadow(0 6px 3px #0005);transition:transform .15s}
+.ball:hover:not(:disabled) .orb{transform:translateY(-6px) rotate(-12deg)}
+.ball .lbl{background:#0f2a17d9;color:white;padding:7px 10px;border-radius:11px;font-weight:800;font-size:.95rem;line-height:1.3;max-width:100%;overflow-wrap:anywhere;border:2px solid transparent;position:relative}
+.ball .lbl kbd{position:absolute;top:-9px;right:-6px;background:white;color:#14532d;border-radius:6px;font-family:inherit;font-size:.68rem;padding:0 5px}
+@media (hover:none){.ball .lbl kbd{display:none}}
+.ball:disabled{cursor:default}
+.ball.kicked .orb{visibility:hidden}
+.ball.right .lbl{background:#13804b;border-color:#b8f5cf}
+.ball.wrong .lbl{background:#a3283a;border-color:#ffc2ca}
+.ball.out{opacity:.45}
+.flyer{position:absolute;font-size:54px;line-height:1;z-index:4;pointer-events:none;filter:drop-shadow(0 6px 3px #0005)}
+.banner{position:absolute;inset:0;display:grid;place-items:center;z-index:5;pointer-events:none}
+.banner span{font-size:clamp(2.2rem,8vw,4.2rem);font-weight:950;color:white;text-shadow:0 4px 0 #0004,0 0 24px #0006;animation:pop .9s both;text-align:center;line-height:1.1;padding:0 12px}
+.banner span small{display:block;font-size:.38em;font-weight:800;margin-top:8px}
+.banner.cpu span{color:#ffd2c9}
+@keyframes pop{0%{transform:scale(.3);opacity:0}35%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+.status{min-height:30px;text-align:center;font-weight:800;margin-top:10px}
+.status.good{color:var(--green)}.status.bad{color:var(--red)}.status.cpu{color:#b5452f}
+.thinking::after{content:"";animation:dots 1s steps(4) infinite}
 @keyframes dots{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
-
-/* battle */
-.bar-top{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font-weight:700;margin-bottom:12px}
-.unit-pill{background:#fff3d6;color:#744e00;border-radius:999px;padding:6px 10px;font-size:.82rem}
-.arena{display:grid;gap:14px}
-.arena.side{grid-template-columns:1fr 190px 1fr;align-items:stretch}
-.arena.face{grid-template-columns:1fr}
-.arena.face .player.p1{transform:rotate(180deg)}
-.player{background:white;border:2px solid var(--line);border-radius:20px;padding:16px;box-shadow:0 8px 24px #1725540a;transition:border-color .2s,box-shadow .2s,opacity .2s;position:relative}
-.player.p1{border-color:#c4d1f7}.player.p2{border-color:#f6d0b3}
-.player.win{box-shadow:0 0 0 4px #6bc49755,0 10px 26px #13804b22;border-color:#6bc497}
-.player.lose{box-shadow:0 0 0 4px #e997a044}
-.player.locked .answers{opacity:.55}
-.player.waiting{opacity:.55}
-.phead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.pname{font-weight:900;font-size:1.05rem;display:flex;align-items:center;gap:8px}
-.pname::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--c)}
-.p1{--c:var(--blue);--soft:var(--blue-soft)}.p2{--c:var(--orange);--soft:var(--orange-soft)}
-.pscore{background:var(--c);color:white;font-weight:900;font-size:1.3rem;min-width:52px;text-align:center;padding:4px 12px;border-radius:12px}
-.pscore.bump{animation:bump .45s}
-@keyframes bump{40%{transform:scale(1.35)}}
-.pq{min-height:118px;display:grid;place-items:center;text-align:center;padding:14px;background:var(--soft);border-radius:16px}
-.plabel{font-size:.82rem;color:var(--muted);margin-bottom:6px}
-.pword{font-size:clamp(1.45rem,3.6vw,2.3rem);font-weight:900;color:var(--navy);overflow-wrap:anywhere}
-.answers{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
-.answer{position:relative;padding:14px 12px 14px 14px;border:1.5px solid var(--line);border-radius:13px;background:white;text-align:left;font-weight:650;line-height:1.35;min-height:58px;color:var(--ink)}
-.answer:hover:not(:disabled){border-color:var(--c);background:var(--soft)}
-.answer.correct{border-color:#6bc497;background:#eaf8f0;color:#075d34}
-.answer.wrong{border-color:#e997a0;background:#fff0f1;color:#9f2331}
-.answer:disabled{cursor:default}
-.answer kbd{position:absolute;right:7px;top:6px;font-family:inherit;font-size:.68rem;color:var(--muted);background:#f3f5f9;border-radius:5px;padding:0 5px}
-@media (hover:none){.answer kbd{display:none}}
-.spell{display:flex;gap:8px;margin-top:12px}
-.spell input{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:12px;padding:13px;font:inherit;font-size:1.05rem}
-.spell input:focus{outline:3px solid #dbe5ff;border-color:var(--c)}
-.spell .primary{background:var(--c)}
-.pstatus{min-height:26px;padding-top:10px;font-weight:750;font-size:.92rem;color:var(--muted);text-align:center}
-.pstatus.good{color:var(--green)}.pstatus.bad{color:var(--red)}
-
-.center{background:white;border:1px solid var(--line);border-radius:20px;padding:16px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center}
-.center .vs{font-size:2.4rem;font-weight:950;color:var(--navy);letter-spacing:-.04em}
-.tug{width:100%}
-.tug .track{position:relative;height:14px;border-radius:99px;background:linear-gradient(90deg,var(--blue) 0 50%,var(--orange) 50% 100%);opacity:.9}
-.tug .marker{position:absolute;top:50%;left:50%;width:30px;height:30px;border-radius:50%;background:white;border:3px solid var(--navy);transform:translate(-50%,-50%);transition:left .45s cubic-bezier(.3,1.4,.6,1);display:grid;place-items:center;font-size:.9rem}
-.tug small{display:block;color:var(--muted);font-size:.75rem;margin-top:10px}
-.timer{width:100%;height:8px;background:#e9edf5;border-radius:99px;overflow:hidden}
-.timer span{display:block;height:100%;width:100%;background:linear-gradient(90deg,#ffb84d,#ff7a59)}
-.feedback{min-height:44px;font-weight:800;line-height:1.4;font-size:.95rem}
-.feedback.good{color:var(--green)}.feedback.bad{color:var(--red)}
-
-.arena.face .center{flex-direction:row;flex-wrap:wrap;padding:12px 16px}
-.arena.face .center .vs{font-size:1.5rem}
-.arena.face .tug{flex:1;min-width:180px}
-.arena.face .timer{flex-basis:100%;order:5}
-.arena.face .feedback{flex-basis:100%;min-height:24px}
-
-/* countdown */
-.cd{position:fixed;inset:0;background:#172554e6;display:grid;place-items:center;z-index:10;color:white;font-size:clamp(4rem,18vw,9rem);font-weight:950}
+.cd{position:fixed;inset:0;background:#14532de6;display:grid;place-items:center;z-index:10;color:white;font-size:clamp(4rem,18vw,9rem);font-weight:950}
 .cd span{animation:pop .7s}
-@keyframes pop{0%{transform:scale(.4);opacity:0}40%{transform:scale(1.1);opacity:1}100%{transform:scale(1)}}
 
 /* result */
 .result{text-align:center;padding:10px 4px}
-.result .emoji{font-size:3.4rem}
-.result h2{color:var(--navy);font-size:2rem;margin:8px 0}
-.final{display:flex;justify-content:center;align-items:center;gap:18px;margin:16px 0 4px;flex-wrap:wrap}
-.final .side{padding:14px 22px;border-radius:16px;min-width:150px;background:var(--soft);border:2px solid transparent}
-.final .side.champ{border-color:var(--gold);box-shadow:0 6px 18px #ffca5c55}
-.final .side b{display:block;color:var(--c);font-size:1rem}
-.final .side span{font-size:2.3rem;font-weight:950;color:var(--navy)}
-.final .colon{font-size:2rem;font-weight:900;color:var(--muted)}
-.result-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:22px 0}
-.review{max-height:320px;overflow:auto;text-align:left;border-top:1px solid var(--line);padding-top:12px}
+.result .emoji{font-size:3.6rem}
+.result h2{color:#14532d;font-size:2rem;margin:8px 0}
+.final{font-size:2.6rem;font-weight:950;margin:12px 0}.final .me{color:#1d8a46}.final .cpu{color:#d4553f}.final .sep{color:var(--muted);margin:0 10px}
+.result-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:20px 0}
+.review{max-height:300px;overflow:auto;text-align:left;border-top:1px solid var(--line);padding-top:12px}
 .review h3{margin:6px 0 10px}
-.review-item{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;padding:9px 4px;border-bottom:1px solid #edf0f5;align-items:center}
+.review-item{display:grid;grid-template-columns:1fr 1.3fr auto;gap:12px;padding:9px 4px;border-bottom:1px solid #edf0f5;align-items:center}
 .review-item strong{color:var(--navy)}
 .tag{font-size:.8rem;font-weight:800;padding:3px 9px;border-radius:99px;white-space:nowrap}
-.tag.p1{background:var(--blue-soft);color:var(--blue)}.tag.p2{background:var(--orange-soft);color:var(--orange)}.tag.none{background:#fff0f1;color:var(--red)}
+.tag.me{background:#e5f7ec;color:#13804b}.tag.cpu{background:#ffece8;color:#c2412d}.tag.none{background:#f1f3f7;color:var(--muted)}
 footer{text-align:center;color:var(--muted);font-size:.83rem;padding:22px}
 
-@media(max-width:860px){.setup-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){
-  body{padding:12px}.hero{padding:22px 20px}.hero .vsmark{display:none}.panel{padding:17px}
-  .names{grid-template-columns:1fr}.names .vs{display:none}
-  .setup-grid{grid-template-columns:1fr}
-  .start-row{align-items:flex-start;flex-direction:column}.start-row button{width:100%}
-  .arena.side{grid-template-columns:1fr}
-  .arena.side .center{flex-direction:row;flex-wrap:wrap}
-  .arena.side .center .vs{font-size:1.5rem}.arena.side .tug{flex:1;min-width:160px}
-  .arena.side .timer,.arena.side .feedback{flex-basis:100%}
-  .player{padding:12px}.pq{min-height:86px}.answer{min-height:48px;padding:11px}
-  .review-item{grid-template-columns:1fr auto}.review-item span.mean{grid-column:1/-1;order:3;color:var(--muted);font-size:.9rem}
+  body{padding:10px}.hero{padding:20px}.hero .big{display:none}.panel{padding:16px}
+  .setup-grid{grid-template-columns:1fr 1fr}
+  .start-row{flex-direction:column;align-items:stretch}
+  .pitch{min-height:460px}
+  .balls{grid-template-columns:1fr 1fr;row-gap:10px;bottom:20px}
+  .ball{flex-direction:row;justify-content:center}.ball .orb{font-size:38px}.ball .lbl{font-size:.88rem}
+  .flyer{font-size:38px}
+  .question{top:52%}
+  .score{padding:6px 12px;gap:10px}.score .n{font-size:1.5rem}
+  .review-item{grid-template-columns:1fr auto}.review-item .mean{grid-column:1/-1;order:3;color:var(--muted);font-size:.9rem}
 }
 </style>
 </head>
 <body>
 <main class="app">
-  <div class="top"><div class="brand">BIGCAT · VOCABULARY BATTLE</div><small>CAU English Vocabulary · 4B</small></div>
+  <div class="top"><div class="brand">BIGCAT · VOCABULARY SHOOTOUT</div><small>CAU English Vocabulary · 4B</small></div>
 
-  <header class="hero" id="hero"><span class="badge">UNIT 6 · 7 · 8 / 총 60단어 · 컴퓨터 · 친구 대결</span><h1>누가 먼저 맞힐까? 단어 대결!</h1><p>컴퓨터나 친구와 같은 문제를 풀어요. 먼저 정답을 고른 사람이 점수를 가져가고, 틀리면 그 문제는 상대에게 기회가 넘어가요.</p><div class="vsmark">VS</div></header>
+  <header class="hero" id="hero"><span class="badge">UNIT 6 · 7 · 8 / 총 60단어 · 컴퓨터와 대결</span><h1>정답 공을 차서 골인!</h1><p>뜻을 보고 알맞은 영어 단어가 적힌 공을 골라 슛! 컴퓨터가 먼저 맞히면 컴퓨터가 골을 넣어요. 먼저 목표 골 수를 채우는 쪽이 승리!</p><div class="big">⚽</div></header>
 
   <section id="setup" class="panel">
-    <div class="opp-row"><span class="opp-title">대결 상대</span>
-      <div class="opp" id="opp">
-        <button data-v="cpu-easy">🤖 컴퓨터 · 쉬움</button><button data-v="cpu-normal" class="on">🤖 컴퓨터 · 보통</button><button data-v="cpu-hard">🤖 컴퓨터 · 어려움</button><button data-v="friend">👫 친구와 2인</button>
-      </div></div>
-    <div class="names">
-      <div class="field p1"><label for="name1">🔵 플레이어 1</label><input id="name1" maxlength="10" placeholder="플레이어 1"></div>
-      <div class="vs">VS</div>
-      <div class="field p2"><label for="name2" id="name2Label">🟠 플레이어 2</label><input id="name2" maxlength="10" placeholder="플레이어 2"></div>
-    </div>
+    <div class="row"><span class="row-title">컴퓨터</span>
+      <div class="chips" id="diff"><button data-v="easy">🤖 쉬움</button><button data-v="normal" class="on">🤖 보통</button><button data-v="hard">🤖 어려움</button></div></div>
+    <div class="row"><span class="row-title">먼저 넣기</span>
+      <div class="chips" id="goals"><button data-v="3">3골</button><button data-v="5" class="on">5골</button><button data-v="7">7골</button><button data-v="10">10골</button></div></div>
     <div class="setup-grid">
-      <div class="field"><label for="units">단원</label><select id="units"><option value="all">Unit 6–8 전체</option><option value="6">Unit 6 · 건강과 감정</option><option value="7">Unit 7 · 미술과 여행</option><option value="8">Unit 8 · 감정과 반응</option></select></div>
-      <div class="field"><label for="mode">대결 방식</label><select id="mode"><option value="enko">스피드 · 영어 보고 뜻 고르기</option><option value="koen">스피드 · 뜻 보고 영어 고르기</option><option value="spell">번갈아 · 뜻 보고 철자 쓰기</option></select></div>
-      <div class="field"><label for="count">문제 수</label><select id="count"><option value="10">10문제</option><option value="20" selected>20문제</option><option value="all">선택 단원 전체</option></select></div>
-      <div class="field"><label for="time">제한 시간</label><select id="time"><option value="8">8초</option><option value="12" selected>12초</option><option value="20">20초</option><option value="0">없음</option></select></div>
-      <div class="field" id="layoutField"><label for="layout">화면 배치</label><select id="layout"><option value="side">나란히 (컴퓨터·가로 화면)</option><option value="face">마주보기 (태블릿 눕혀서)</option></select></div>
+      <div class="field-f"><label for="name">내 이름</label><input id="name" maxlength="10" placeholder="나"></div>
+      <div class="field-f"><label for="units">단원</label><select id="units"><option value="all">Unit 6–8 전체</option><option value="6">Unit 6 · 건강과 감정</option><option value="7">Unit 7 · 미술과 여행</option><option value="8">Unit 8 · 감정과 반응</option></select></div>
+      <div class="field-f"><label for="mode">문제 방식</label><select id="mode"><option value="koen">뜻 보고 영어 공 고르기</option><option value="enko">영어 보고 뜻 공 고르기</option></select></div>
+      <div class="field-f"><label for="time">제한 시간</label><select id="time"><option value="8">8초</option><option value="12" selected>12초</option><option value="20">20초</option><option value="0">없음</option></select></div>
     </div>
-    <div class="start-row">
-      <span class="hint" id="keyHint">키보드로도 대결할 수 있어요 · 플레이어 1: <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> · 플레이어 2: <kbd>7</kbd><kbd>8</kbd><kbd>9</kbd><kbd>0</kbd></span>
-      <button class="primary" id="start">대결 시작하기</button>
-    </div>
+    <div class="start-row"><span class="hint">공을 눌러 슛! 키보드로는 <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> · 틀리면 그 문제에서는 다시 찰 수 없어요.</span><button class="primary" id="start">킥오프! ⚽</button></div>
   </section>
 
-  <section id="battle" class="hidden">
-    <div class="bar-top"><span id="counter">1 / 20</span><span id="unitBadge" class="unit-pill">UNIT 6</span><button class="secondary" id="quit">그만하기</button></div>
-    <div class="arena side" id="arena">
-      <div class="player p1" id="pl0"></div>
-      <div class="center">
-        <div class="vs">VS</div>
-        <div class="tug"><div class="track"><div class="marker" id="marker">⚡</div></div><small>앞서는 쪽으로 번개가 끌려가요</small></div>
-        <div class="timer" id="timerWrap"><span id="timer"></span></div>
-        <div class="feedback" id="feedback" aria-live="polite"></div>
-      </div>
-      <div class="player p2" id="pl1"></div>
+  <section id="game" class="hidden">
+    <div class="board">
+      <div class="score"><span class="nm" id="meName">나</span><span class="n me" id="meScore">0</span><span class="sep">:</span><span class="n cpu" id="cpuScore">0</span><span class="nm" id="cpuName">🤖 컴퓨터</span></div>
+      <div class="target"><span id="targetText">먼저 5골</span><div class="goaldots" id="dots"></div></div>
+      <button class="secondary" id="quit">그만하기</button>
     </div>
+    <div class="pitch" id="pitch">
+      <div class="box"></div><div class="spotmark"></div>
+      <div class="goal" id="goal"><div class="keeper" id="keeper"><div class="k-in"><span class="k-head">🤖</span><span class="k-body"></span><span class="k-glove l">🧤</span><span class="k-glove r">🧤</span></div></div></div>
+      <div class="question"><div class="q-label" id="qLabel">뜻에 맞는 영어 단어 공을 차세요</div><div class="q-word" id="qWord">-</div></div>
+      <div class="balls" id="balls"></div>
+      <div class="timer" id="timerWrap"><span id="timer"></span></div>
+      <div class="banner hidden" id="banner"></div>
+    </div>
+    <div class="status" id="status" aria-live="polite"></div>
   </section>
 
   <section id="result" class="panel hidden"></section>
@@ -183,230 +163,152 @@ const words=[
 {u:7,w:"art",k:"예술, 미술"},{u:7,w:"tunnel",k:"터널"},{u:7,w:"step",k:"계단"},{u:7,w:"purpose",k:"목적"},{u:7,w:"colorful",k:"색깔이 화려한, 다채로운"},{u:7,w:"tour guide",k:"관광 가이드"},{u:7,w:"tour",k:"여행"},{u:7,w:"proud",k:"자랑스러운"},{u:7,w:"mural",k:"벽화"},{u:7,w:"wonderful",k:"아주 멋진, 훌륭한"},{u:7,w:"terrible",k:"끔찍한, 형편없는"},{u:7,w:"amazed",k:"놀란, 감탄한"},{u:7,w:"embarrassed",k:"당황한, 창피한"},{u:7,w:"paintbrush",k:"붓"},{u:7,w:"painter",k:"화가"},{u:7,w:"stripe",k:"줄무늬"},{u:7,w:"spot",k:"점, 반점"},{u:7,w:"necessary",k:"필요한, 필수의"},{u:7,w:"express",k:"표현하다"},{u:7,w:"interested",k:"관심 있는, 흥미를 느끼는"},
 {u:8,w:"scared",k:"무서워하는, 겁먹은"},{u:8,w:"situation",k:"상황, 처지"},{u:8,w:"human",k:"인간, 사람"},{u:8,w:"particular",k:"특정한"},{u:8,w:"react",k:"반응하다"},{u:8,w:"scream",k:"비명을 지르다, 소리치다"},{u:8,w:"feeling",k:"느낌, 감정"},{u:8,w:"shake",k:"흔들다"},{u:8,w:"purr",k:"(고양이가) 가르랑거리다"},{u:8,w:"wag",k:"(꼬리를) 흔들다"},{u:8,w:"friendly",k:"친절한, 다정한"},{u:8,w:"fair",k:"공정한, 공평한"},{u:8,w:"regret",k:"후회하다"},{u:8,w:"peaceful",k:"평화로운, 평온한"},{u:8,w:"mood",k:"기분, 분위기"},{u:8,w:"nervous",k:"긴장되는, 불안해하는"},{u:8,w:"apologize",k:"사과하다"},{u:8,w:"forgive",k:"용서하다"},{u:8,w:"promise",k:"약속하다"},{u:8,w:"slither",k:"스르르 가다"}
 ];
+const CPU={easy:{acc:.55,min:4.5,max:8,label:"쉬움"},normal:{acc:.75,min:2.8,max:5.5,label:"보통"},hard:{acc:.9,min:1.4,max:3.2,label:"어려움"}};
+const SPOTS=[.16,.39,.61,.84];
 const $=id=>document.getElementById(id);
-const KEYS=[["1","2","3","4"],["7","8","9","0"]];
-let players=[],qs=[],idx=0,mode="enko",secs=12,done=true,locked=[false,false],results=[],tickT=null,nextT=null,cdT=null,cpuT=null,typeT=null,cpu=null;
-const CPU={"cpu-easy":{acc:.55,min:4.5,max:8,label:"쉬움"},"cpu-normal":{acc:.75,min:2.8,max:5.5,label:"보통"},"cpu-hard":{acc:.9,min:1.4,max:3.2,label:"어려움"}};
-let opponent="cpu-normal";
+let diff="normal",target=5,mode="koen",secs=12,pool=[],deck=[],cur=null,opts=[],me=0,cpuScore=0,done=true,meOut=false,cpuOut=false,log=[],T={};
 
 function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
-function key(){return mode==="koen"?"w":"k"}
-function other(p){return 1-p}
-function panel(p){return $("pl"+p)}
-function q(){return qs[idx]}
+function ansKey(){return mode==="koen"?"w":"k"}
+function clearAll(){Object.values(T).forEach(t=>{clearTimeout(t);clearInterval(t)});T={}}
+function chips(id,cb){$(id).querySelectorAll("button").forEach(b=>b.onclick=()=>{$(id).querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));cb(b.dataset.v)})}
+chips("diff",v=>diff=v);chips("goals",v=>target=Number(v));
 
-function buildPanels(){
-  [0,1].forEach(p=>{
-    panel(p).innerHTML=`<div class="phead"><span class="pname"></span><span class="pscore">0</span></div>
-    <div class="pq"><div><div class="plabel"></div><div class="pword"></div></div></div>
-    <div class="answers"></div>
-    <div class="spell hidden"><input autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="영어 단어 입력"><button class="primary">확인</button></div>
-    <div class="pstatus"></div>`;
-    const inp=panel(p).querySelector(".spell input");
-    panel(p).querySelector(".spell button").onclick=()=>submitSpell(p);
-    inp.addEventListener("keydown",e=>{if(e.key==="Enter")submitSpell(p)});
-  });
-}
-function sel(p,s){return panel(p).querySelector(s)}
-function setStatus(p,text,cls=""){const el=sel(p,".pstatus");el.textContent=text;el.className="pstatus "+cls}
-function setFeedback(text,cls=""){$("feedback").textContent=text;$("feedback").className="feedback "+cls}
-
-function clearTimers(){clearInterval(tickT);clearTimeout(nextT);clearTimeout(cdT);clearTimeout(cpuT);clearInterval(typeT);tickT=nextT=cdT=cpuT=typeT=null}
-function cpuDelay(){let d=(cpu.min+Math.random()*(cpu.max-cpu.min))*1000;if(secs)d=Math.min(d,secs*1000-400+Math.random()*900);return d}
-function cpuSpeed(){
-  cpuT=setTimeout(()=>{
-    if(done||locked[1])return;
-    const btns=[...panel(1).querySelectorAll(".answer")],right=q()[key()];
-    const good=btns.find(b=>b.dataset.v===right),bad=btns.filter(b=>b!==good);
-    answer(1,Math.random()<cpu.acc?good:bad[Math.floor(Math.random()*bad.length)],true);
-  },cpuDelay());
-}
-function misspell(w){
-  const a=w.split(""),i=1+Math.floor(Math.random()*Math.max(1,a.length-2)),t=Math.floor(Math.random()*3);
-  if(t===0&&a.length>3)a.splice(i,1);else if(t===1)a.splice(i,0,a[i]);else if(i+1<a.length&&a[i]!==a[i+1])[a[i],a[i+1]]=[a[i+1],a[i]];else a.splice(i,1,"aeiou"[Math.floor(Math.random()*5)]);
-  const out=a.join("");return out===w?w+"e":out;
-}
-function cpuSpell(){
-  const p=1,inp=sel(p,".spell input"),target=Math.random()<cpu.acc?q().w:misspell(q().w);
-  inp.disabled=true;sel(p,".spell button").disabled=true;
-  setStatus(p,"컴퓨터가 생각 중");sel(p,".pstatus").classList.add("thinking");
-  const total=cpuDelay(),think=total*0.45,per=Math.max(60,(total-think)/target.length);
-  cpuT=setTimeout(()=>{let i=0;sel(p,".pstatus").classList.remove("thinking");setStatus(p,"입력하는 중…");
-    typeT=setInterval(()=>{if(done){clearInterval(typeT);return}inp.value=target.slice(0,++i);if(i>=target.length){clearInterval(typeT);setTimeout(()=>submitSpell(p,true),350)}},per)},think);
+function start(){
+  clearAll();mode=$("mode").value;secs=Number($("time").value);
+  const unit=$("units").value;pool=words.filter(x=>unit==="all"||x.u===Number(unit));deck=[];
+  me=0;cpuScore=0;log=[];
+  $("meName").textContent=$("name").value.trim()||"나";$("cpuName").textContent=`🤖 컴퓨터(${CPU[diff].label})`;
+  $("targetText").textContent=`먼저 ${target}골`;$("timerWrap").classList.toggle("hidden",!secs);
+  updateBoard();
+  ["hero","setup","result"].forEach(id=>$(id).classList.add("hidden"));$("game").classList.remove("hidden");
+  const seq=["3","2","1","킥오프!"];let i=0;$("cd").classList.remove("hidden");
+  const step=()=>{if(i<seq.length){$("cd").innerHTML=`<span>${seq[i++]}</span>`;T.cd=setTimeout(step,700)}else{$("cd").classList.add("hidden");newRound()}};step();
 }
 
-function startBattle(){
-  clearTimers();
-  const unit=$("units").value;mode=$("mode").value;secs=Number($("time").value);
-  let pool=shuffle(words.filter(x=>unit==="all"||x.u===Number(unit)));
-  let n=$("count").value==="all"?pool.length:Math.min(pool.length,Number($("count").value));
-  if(mode==="spell"&&n%2)n--;
-  qs=pool.slice(0,n);idx=0;results=[];
-  cpu=CPU[opponent]||null;
-  players=[{name:$("name1").value.trim()||(cpu?"나":"플레이어 1"),score:0},{name:cpu?`🤖 컴퓨터(${cpu.label})`:($("name2").value.trim()||"플레이어 2"),score:0}];
-  $("arena").className="arena "+(cpu?"side":$("layout").value);
-  $("timerWrap").classList.toggle("hidden",secs===0);
-  buildPanels();updateScores(false);
-  ["hero","setup","result"].forEach(id=>$(id).classList.add("hidden"));
-  $("battle").classList.remove("hidden");
-  countdown(showQuestion);
+function nextWord(){if(!deck.length)deck=shuffle([...pool]);return deck.pop()}
+
+function newRound(){
+  clearAll();done=false;meOut=false;cpuOut=false;
+  cur=nextWord();const k=ansKey(),correct=cur[k];
+  const others=[...new Set(shuffle(words.filter(x=>x!==cur).map(x=>x[k]).filter(x=>x!==correct)))].slice(0,3);
+  opts=shuffle([correct,...others]);
+  $("qLabel").textContent=mode==="koen"?"뜻에 맞는 영어 단어 공을 차세요":"영어 단어에 맞는 뜻 공을 차세요";
+  $("qWord").textContent=mode==="koen"?cur.k:cur.w;
+  const box=$("balls");box.innerHTML="";
+  opts.forEach((o,i)=>{const b=document.createElement("button");b.className="ball";b.dataset.v=o;
+    b.innerHTML=`<span class="orb">⚽</span><span class="lbl">${esc(o)}<kbd>${i+1}</kbd></span>`;b.onclick=()=>shoot(i);box.appendChild(b)});
+  resetKeeper();$("banner").classList.add("hidden");$("pitch").querySelectorAll(".flyer").forEach(f=>f.remove());
+  setStatus("공을 골라 슛! 🤖 컴퓨터도 노리고 있어요","");
+  startTimer();cpuPlan();
 }
 
-function countdown(cb){
-  const seq=["3","2","1","시작!"];let i=0;$("cd").classList.remove("hidden");
-  const step=()=>{if(i<seq.length){$("cd").innerHTML=`<span>${seq[i++]}</span>`;cdT=setTimeout(step,700)}else{$("cd").classList.add("hidden");cb()}};
-  step();
-}
-
-function showQuestion(){
-  clearTimers();done=false;locked=[false,false];
-  const cur=q(),total=qs.length,spell=mode==="spell",turn=idx%2;
-  $("counter").textContent=`${idx+1} / ${total}`;$("unitBadge").textContent=`UNIT ${cur.u}`;setFeedback(spell?`${players[turn].name} 차례예요!`:"먼저 맞히는 사람이 1점!");
-  const label=mode==="enko"?"알맞은 뜻을 고르세요":mode==="koen"?"알맞은 영어 단어를 고르세요":"영어 철자를 쓰세요";
-  const shared=spell?null:options(cur);
-  [0,1].forEach(p=>{
-    panel(p).classList.remove("win","lose","locked","waiting");
-    sel(p,".plabel").textContent=label;sel(p,".pword").textContent=mode==="enko"?cur.w:cur.k;
-    sel(p,".answers").classList.toggle("hidden",spell);
-    const sp=sel(p,".spell");
-    if(spell){
-      const mine=p===turn;sp.classList.toggle("hidden",!mine);panel(p).classList.toggle("waiting",!mine);
-      const inp=sp.querySelector("input");inp.value="";inp.disabled=false;sp.querySelector("button").disabled=false;
-      setStatus(p,mine?"내 차례! 철자를 입력하세요":"상대 차례예요 · 같이 생각해 봐요");
-      if(mine&&!(cpu&&p===1))setTimeout(()=>inp.focus(),30);
-    }else{
-      sp.classList.add("hidden");setStatus(p,"");
-      const box=sel(p,".answers");box.innerHTML="";
-      shuffle([...shared]).forEach((choice,i)=>{
-        const b=document.createElement("button");b.className="answer";b.dataset.v=choice;
-        b.innerHTML=`${esc(choice)}<kbd>${KEYS[p][i]}</kbd>`;
-        b.onclick=()=>answer(p,b);box.appendChild(b);
-      });
-    }
-  });
-  startTimer();
-  if(cpu){if(!spell)cpuSpeed();else if(turn===1)cpuSpell()}
-}
-
-function options(cur){
-  const k=key(),correct=cur[k];
-  const pool=[...new Set(shuffle(words.filter(x=>x!==cur).map(x=>x[k]).filter(x=>x!==correct)))];
-  return [correct,...pool.slice(0,3)];
-}
+function setStatus(t,c){const s=$("status");s.textContent=t;s.className="status "+(c||"")}
+function balls(){return [...$("balls").children]}
 
 function startTimer(){
-  $("timer").style.width="100%";if(!secs)return;
-  const t0=Date.now();
-  tickT=setInterval(()=>{const f=Math.max(0,1-(Date.now()-t0)/(secs*1000));$("timer").style.width=(f*100)+"%";if(f<=0)timeout()},80);
+  $("timer").style.width="100%";if(!secs)return;const t0=Date.now();
+  T.tick=setInterval(()=>{const f=Math.max(0,1-(Date.now()-t0)/(secs*1000));$("timer").style.width=f*100+"%";if(f<=0)timeout()},80);
 }
 
-function revealAll(){
-  const right=q()[key()];
-  [0,1].forEach(p=>panel(p).querySelectorAll(".answer").forEach(b=>{b.disabled=true;if(b.dataset.v===right)b.classList.add("correct")}));
+function cpuPlan(){
+  const c=CPU[diff];let d=(c.min+Math.random()*(c.max-c.min))*1000;if(secs)d=Math.min(d,secs*1000-400+Math.random()*900);
+  T.think=setTimeout(()=>{if(!done&&!cpuOut){setStatus("🤖 컴퓨터가 노리는 중","cpu");$("status").classList.add("thinking")}},d*0.55);
+  T.cpu=setTimeout(cpuShoot,d);
 }
 
-function answer(p,btn,fromCpu){
-  if(done||locked[p]||mode==="spell")return;
-  if(cpu&&p===1&&!fromCpu)return;
-  const cur=q(),ok=btn.dataset.v===cur[key()];
+function resetKeeper(){const k=$("keeper");k.classList.remove("dived");k.style.transform="translateX(-50%)"}
+function dive(frac){
+  const k=$("keeper"),g=$("goal").getBoundingClientRect(),dx=(frac-.5)*g.width;
+  k.classList.add("dived");k.style.transform=`translateX(calc(-50% + ${dx}px)) rotate(${frac<.5?-28:28}deg)`;
+}
+
+function fly(i,scored,cb){
+  const b=balls()[i],orb=b.querySelector(".orb"),pitch=$("pitch"),pr=pitch.getBoundingClientRect(),or=orb.getBoundingClientRect(),gr=$("goal").getBoundingClientRect();
+  const f=document.createElement("span");f.className="flyer";f.textContent="⚽";
+  f.style.left=(or.left-pr.left)+"px";f.style.top=(or.top-pr.top)+"px";pitch.appendChild(f);b.classList.add("kicked");
+  const spot=SPOTS[i],tx=gr.left-pr.left+gr.width*spot-or.width/2,ty=gr.top-pr.top+gr.height*(scored?.38:.7)-or.height/2;
+  const dx=tx-(or.left-pr.left),dy=ty-(or.top-pr.top);
+  if(scored)dive(spot<.5?Math.min(.85,spot+.5):Math.max(.15,spot-.5));else dive(spot);
+  const end=`translate(${dx}px,${dy}px) scale(.5) rotate(720deg)`;
+  if(f.animate){f.animate([{transform:"translate(0,0) scale(1) rotate(0)"},{transform:`translate(${dx*.5}px,${dy*.55-40}px) scale(.75) rotate(360deg)`},{transform:end}],{duration:620,easing:"cubic-bezier(.3,.7,.4,1)",fill:"forwards"})}
+  else f.style.transform=end;
+  T.fly=setTimeout(cb,640);
+}
+
+function banner(html,cls){const b=$("banner");b.className="banner "+(cls||"");b.innerHTML=`<span>${html}</span>`}
+function updateBoard(bump){
+  $("meScore").textContent=me;$("cpuScore").textContent=cpuScore;
+  if(bump){const el=$(bump==="me"?"meScore":"cpuScore");el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump")}
+  $("dots").innerHTML=Array.from({length:target},(_,i)=>`<i class="${i<me?"me":""}"></i>`).join("")+"<b style='width:8px'></b>"+Array.from({length:target},(_,i)=>`<i class="${i<cpuScore?"cpu":""}"></i>`).join("");
+}
+function markRight(){const r=cur[ansKey()];balls().forEach(b=>{b.disabled=true;if(b.dataset.v===r)b.classList.add("right")})}
+
+function shoot(i){
+  if(done||meOut)return;
+  const b=balls()[i],ok=b.dataset.v===cur[ansKey()];
   if(ok){
-    done=true;clearInterval(tickT);clearTimeout(cpuT);btn.classList.add("correct");
-    players[p].score++;panel(p).classList.add("win");
-    setStatus(p,"정답! +1점 🎉","good");setStatus(other(p),"아깝다! 상대가 먼저 맞혔어요","bad");
-    revealAll();setFeedback(`${players[p].name} 득점! ${cur.w} = ${cur.k}`,"good");
-    results.push({q:cur,winner:p});updateScores(true,p);scheduleNext();
+    done=true;clearAll();balls().forEach(x=>x.disabled=true);
+    fly(i,true,()=>{me++;updateBoard("me");$("goal").classList.remove("flash");void $("goal").offsetWidth;$("goal").classList.add("flash");
+      banner(`GOOOAL! ⚽<small>${esc(cur.w)} = ${esc(cur.k)}</small>`);markRight();setStatus(`정답! ${cur.w} = ${cur.k}`,"good");
+      log.push({q:cur,who:"me"});T.next=setTimeout(afterRound,1800)});
   }else{
-    btn.classList.add("wrong");locked[p]=true;panel(p).classList.add("locked");
-    panel(p).querySelectorAll(".answer").forEach(b=>b.disabled=true);
-    setStatus(p,"앗, 틀렸어요! 이번 문제는 쉬어요","bad");
-    if(locked[0]&&locked[1]){
-      done=true;clearInterval(tickT);revealAll();
-      setFeedback(`둘 다 틀렸어요. 정답: ${cur.w} = ${cur.k}`,"bad");
-      results.push({q:cur,winner:null});scheduleNext(2200);
-    }else{
-      setFeedback(`${players[p].name} 오답! ${players[other(p)].name}에게 기회!`,"bad");
-    }
+    meOut=true;balls().forEach(x=>{x.disabled=true;if(x!==b)x.classList.add("out")});b.classList.add("wrong");
+    fly(i,false,()=>{
+      banner("막혔어요! 🧤<small>정답이 아니에요</small>","cpu");
+      if(done)return;if(cpuOut){bothMiss()}else setStatus("앗, 틀렸어요! 🤖 컴퓨터에게 기회가 넘어가요","bad");
+      T.clr=setTimeout(()=>{if(!done)$("banner").classList.add("hidden")},900);
+    });
   }
 }
 
-function submitSpell(p,fromCpu){
-  if(done||mode!=="spell"||p!==idx%2)return;
-  if(cpu&&p===1&&!fromCpu)return;
-  const cur=q(),inp=sel(p,".spell input");
-  const typed=inp.value.trim().toLowerCase().replace(/\s+/g," ");
-  if(!typed){setStatus(p,"영어 단어를 입력해 주세요","bad");return}
-  done=true;clearInterval(tickT);inp.disabled=true;sel(p,".spell button").disabled=true;
-  const ok=typed===cur.w.toLowerCase();
-  if(ok){players[p].score++;panel(p).classList.add("win");setStatus(p,"정답! +1점 🎉","good");setFeedback(`${players[p].name} 득점! ${cur.w} = ${cur.k}`,"good")}
-  else{panel(p).classList.add("lose");setStatus(p,`정답은 "${cur.w}"`,"bad");setFeedback(`아쉬워요! 정답: ${cur.w} = ${cur.k}`,"bad")}
-  results.push({q:cur,winner:ok?p:null,turn:p});updateScores(ok,p);scheduleNext(ok?1700:2300);
+function cpuShoot(){
+  if(done||cpuOut)return;
+  const right=Math.random()<CPU[diff].acc;
+  if(right){
+    done=true;clearAll();cpuScore++;updateBoard("cpu");markRight();
+    $("pitch").classList.remove("shake");void $("pitch").offsetWidth;$("pitch").classList.add("shake");
+    banner(`🤖 컴퓨터 골!<small>정답: ${esc(cur.w)} = ${esc(cur.k)}</small>`,"cpu");setStatus("컴퓨터가 먼저 맞혔어요! 다음엔 더 빨리!","cpu");
+    log.push({q:cur,who:"cpu"});T.next=setTimeout(afterRound,2000);
+  }else{
+    cpuOut=true;
+    if(meOut)bothMiss();else setStatus("🤖 컴퓨터가 틀렸어요! 지금이 기회, 슛!","good");
+  }
+}
+
+function bothMiss(){
+  if(done)return;done=true;clearAll();markRight();
+  banner(`노골!<small>정답: ${esc(cur.w)} = ${esc(cur.k)}</small>`,"cpu");setStatus(`둘 다 놓쳤어요. 정답: ${cur.w} = ${cur.k}`,"bad");
+  log.push({q:cur,who:null});T.next=setTimeout(afterRound,2200);
 }
 
 function timeout(){
-  if(done)return;done=true;clearInterval(tickT);
-  const cur=q();
-  if(mode==="spell"){
-    const p=idx%2;sel(p,".spell input").disabled=true;sel(p,".spell button").disabled=true;panel(p).classList.add("lose");
-    setStatus(p,`시간 초과! 정답은 "${cur.w}"`,"bad");results.push({q:cur,winner:null,turn:p});
-  }else{
-    revealAll();[0,1].forEach(p=>{if(!locked[p])setStatus(p,"시간 초과!","bad")});results.push({q:cur,winner:null});
-  }
-  setFeedback(`⏰ 시간 초과! 정답: ${cur.w} = ${cur.k}`,"bad");scheduleNext(2200);
+  if(done)return;done=true;clearAll();markRight();
+  banner(`⏰ 시간 초과!<small>정답: ${esc(cur.w)} = ${esc(cur.k)}</small>`,"cpu");setStatus(`정답: ${cur.w} = ${cur.k}`,"bad");
+  log.push({q:cur,who:null});T.next=setTimeout(afterRound,2200);
 }
 
-function scheduleNext(ms=1700){
-  nextT=setTimeout(()=>{idx++;if(idx<qs.length)showQuestion();else showResult()},ms);
-}
-
-function updateScores(bump,who){
-  [0,1].forEach(p=>{sel(p,".pname").textContent=players[p].name;const s=sel(p,".pscore");s.textContent=players[p].score;if(bump&&p===who){s.classList.remove("bump");void s.offsetWidth;s.classList.add("bump")}});
-  const diff=players[0].score-players[1].score,span=Math.max(4,Math.ceil(qs.length/3));
-  const pos=50-Math.max(-1,Math.min(1,diff/span))*44;
-  $("marker").style.left=pos+"%";
-}
+function afterRound(){if(me>=target||cpuScore>=target)showResult();else newRound()}
 
 function showResult(){
-  clearTimers();$("battle").classList.add("hidden");$("result").classList.remove("hidden");
-  const [a,b]=players,w=a.score===b.score?null:(a.score>b.score?0:1);
-  let title=w===null?"무승부! 둘 다 대단해요":`${esc(players[w].name)} 승리!`;
-  let sub=w===null?"한 판 더 해서 승부를 가려 볼까요?":`${esc(players[other(w)].name)}, 다음 판에서 설욕해 봐요!`;
-  if(cpu){title=w===null?"컴퓨터와 무승부!":w===0?`${esc(a.name)}, 컴퓨터를 이겼어요!`:"컴퓨터 승리!";
-    sub=w===0?(opponent==="cpu-hard"?"어려움 단계까지 이기다니 대단해요! 🎉":"다음엔 더 어려운 컴퓨터에 도전해 볼까요?"):"틀린 단어를 다시 보고 재도전해 봐요!"}
-  const tag=r=>r.winner===null?(mode==="spell"?`<span class="tag none p${r.turn+1}">${esc(players[r.turn].name)} ✗</span>`:`<span class="tag none">아무도 못 맞힘</span>`):`<span class="tag p${r.winner+1}">${esc(players[r.winner].name)} ✓</span>`;
-  const missed=results.filter(r=>r.winner===null);
-  $("result").innerHTML=`<div class="result">
-    <div class="emoji">${w===null?"🤝":"🏆"}</div><h2>${title}</h2><p class="hint">${sub}</p>
-    <div class="final">
-      <div class="side p1 ${w===0?"champ":""}"><b>${esc(a.name)}</b><span>${a.score}</span></div>
-      <div class="colon">:</div>
-      <div class="side p2 ${w===1?"champ":""}"><b>${esc(b.name)}</b><span>${b.score}</span></div>
-    </div>
-    <div class="result-actions"><button class="primary" id="again">재대결!</button><button class="secondary" id="home">설정으로</button></div>
-    <div class="review"><h3>문제별 결과 ${missed.length?`· 함께 다시 볼 단어 ${missed.length}개`:"· 놓친 단어 없음!"}</h3>
-      ${results.map(r=>`<div class="review-item"><strong>${esc(r.q.w)}</strong><span class="mean">${esc(r.q.k)}</span>${tag(r)}</div>`).join("")}
-    </div></div>`;
-  $("again").onclick=startBattle;
-  $("home").onclick=goHome;
+  clearAll();$("game").classList.add("hidden");$("result").classList.remove("hidden");
+  const win=me>cpuScore,name=esc($("name").value.trim()||"나");
+  const title=win?`${name} 승리! 🎉`:"컴퓨터 승리!";
+  const sub=win?(diff==="hard"?"어려움 컴퓨터를 이기다니, 진짜 단어 왕이에요!":"다음엔 더 어려운 컴퓨터에 도전해 볼까요?"):"놓친 단어를 다시 보고 재도전해 봐요!";
+  const missed=log.filter(r=>r.who!=="me");
+  const tag=r=>r.who==="me"?'<span class="tag me">내 골 ⚽</span>':r.who==="cpu"?'<span class="tag cpu">컴퓨터 골</span>':'<span class="tag none">노골</span>';
+  $("result").innerHTML=`<div class="result"><div class="emoji">${win?"🏆":"🥅"}</div><h2>${title}</h2><p class="hint">${sub}</p>
+    <div class="final"><span class="me">${me}</span><span class="sep">:</span><span class="cpu">${cpuScore}</span></div>
+    <div class="result-actions"><button class="primary" id="again">다시 경기하기 ⚽</button><button class="secondary" id="home">설정으로</button></div>
+    <div class="review"><h3>경기 기록 ${missed.length?`· 다시 볼 단어 ${missed.length}개`:"· 모든 문제 골인!"}</h3>
+    ${log.map(r=>`<div class="review-item"><strong>${esc(r.q.w)}</strong><span class="mean">${esc(r.q.k)}</span>${tag(r)}</div>`).join("")}</div></div>`;
+  $("again").onclick=start;$("home").onclick=home;
 }
+function home(){clearAll();$("cd").classList.add("hidden");["game","result"].forEach(id=>$(id).classList.add("hidden"));["hero","setup"].forEach(id=>$(id).classList.remove("hidden"))}
 
-function goHome(){clearTimers();$("cd").classList.add("hidden");["battle","result"].forEach(id=>$(id).classList.add("hidden"));["hero","setup"].forEach(id=>$(id).classList.remove("hidden"))}
-
-document.addEventListener("keydown",e=>{
-  if($("battle").classList.contains("hidden")||done||mode==="spell")return;
-  if(cpu){const i=[...KEYS[0],...KEYS[1]].indexOf(e.key)%4;if(i>-1){const btn=panel(0).querySelectorAll(".answer")[i];if(btn&&!btn.disabled)answer(0,btn);e.preventDefault()}return}
-  for(const p of [0,1]){const i=KEYS[p].indexOf(e.key);if(i>-1){const btn=panel(p).querySelectorAll(".answer")[i];if(btn&&!btn.disabled)answer(p,btn);e.preventDefault();return}}
-});
-$("layout").value=window.innerWidth<=760?"face":"side";
-function setOpponent(v){opponent=v;const isCpu=v!=="friend";
-  $("opp").querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));
-  $("name2").disabled=isCpu;$("name2").value=isCpu?"":$("name2").value;$("name2").placeholder=isCpu?`컴퓨터 (${CPU[v].label})`:"플레이어 2";
-  $("name2Label").textContent=isCpu?"🤖 컴퓨터":"🟠 플레이어 2";$("name1").placeholder=isCpu?"내 이름":"플레이어 1";
-  $("layoutField").classList.toggle("hidden",isCpu);
-  $("keyHint").innerHTML=isCpu?"키보드로도 할 수 있어요 · 답 고르기: <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd>":"키보드로도 대결할 수 있어요 · 플레이어 1: <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> · 플레이어 2: <kbd>7</kbd><kbd>8</kbd><kbd>9</kbd><kbd>0</kbd>";}
-$("opp").querySelectorAll("button").forEach(b=>b.onclick=()=>setOpponent(b.dataset.v));
-setOpponent("cpu-normal");
-$("start").onclick=startBattle;$("quit").onclick=goHome;
+document.addEventListener("keydown",e=>{if($("game").classList.contains("hidden"))return;const i=["1","2","3","4"].indexOf(e.key);if(i>-1){shoot(i);e.preventDefault()}});
+$("start").onclick=start;$("quit").onclick=home;
 </script>
 </body>
 </html>
