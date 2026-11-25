@@ -60,6 +60,7 @@ button{font:inherit;cursor:pointer;border:0}
 .k-glove{position:absolute;top:28px;font-size:22px}.k-glove.l{left:-12px}.k-glove.r{right:-12px;transform:scaleX(-1)}
 .question{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fffffff0;border-radius:18px;padding:12px 22px;text-align:center;max-width:88%;box-shadow:0 8px 20px #0002;z-index:1}
 .q-label{font-size:.8rem;color:var(--muted);margin-bottom:4px}
+.q-word.def{font-size:clamp(1.05rem,2.8vw,1.45rem);line-height:1.35;font-weight:800;max-width:520px}
 .q-word{font-size:clamp(1.3rem,4vw,2rem);font-weight:900;color:var(--navy);overflow-wrap:anywhere}
 .timer{position:absolute;left:16px;right:16px;top:auto;bottom:6px;height:7px;background:#ffffff40;border-radius:99px;overflow:hidden}
 .timer span{display:block;height:100%;width:100%;background:linear-gradient(90deg,#ffe36e,#ff8a5c)}
@@ -120,7 +121,7 @@ footer{text-align:center;color:var(--muted);font-size:.83rem;padding:22px}
 <main class="app">
   <div class="top"><div class="brand">BIGCAT · VOCABULARY SHOOTOUT</div><small>CAU English Vocabulary · 4B</small></div>
 
-  <header class="hero" id="hero"><span class="badge">UNIT 6 · 7 · 8 / 총 60단어 · 컴퓨터와 대결</span><h1>정답 공을 차서 골인!</h1><p>뜻을 보고 알맞은 영어 단어가 적힌 공을 골라 슛! 컴퓨터가 먼저 맞히면 컴퓨터가 골을 넣어요. 먼저 목표 골 수를 채우는 쪽이 승리!</p><div class="big">⚽</div></header>
+  <header class="hero" id="hero"><span class="badge">UNIT 6 · 7 · 8 / 총 60단어 · 컴퓨터와 대결</span><h1>정답 공을 차서 골인!</h1><p>영어 뜻풀이를 보고 알맞은 단어가 적힌 공을 골라 슛! 컴퓨터가 먼저 맞히면 컴퓨터가 골을 넣어요. 먼저 목표 골 수를 채우는 쪽이 승리!</p><div class="big">⚽</div></header>
 
   <section id="setup" class="panel">
     <div class="row"><span class="row-title">컴퓨터</span>
@@ -130,7 +131,7 @@ footer{text-align:center;color:var(--muted);font-size:.83rem;padding:22px}
     <div class="setup-grid">
       <div class="field-f"><label for="name">내 이름</label><input id="name" maxlength="10" placeholder="나"></div>
       <div class="field-f"><label for="units">단원</label><select id="units"><option value="all">Unit 6–8 전체</option><option value="6">Unit 6 · 건강과 감정</option><option value="7">Unit 7 · 미술과 여행</option><option value="8">Unit 8 · 감정과 반응</option></select></div>
-      <div class="field-f"><label for="mode">문제 방식</label><select id="mode"><option value="koen">뜻 보고 영어 공 고르기</option><option value="enko">영어 보고 뜻 공 고르기</option></select></div>
+      <div class="field-f"><label for="mode">문제 방식</label><select id="mode"><option value="def">영어 뜻풀이 보고 단어 공 고르기</option><option value="koen">한글 뜻 보고 영어 공 고르기</option><option value="enko">영어 보고 뜻 공 고르기</option></select></div>
       <div class="field-f"><label for="time">제한 시간</label><select id="time"><option value="8">8초</option><option value="12" selected>12초</option><option value="20">20초</option><option value="0">없음</option></select></div>
     </div>
     <div class="start-row"><span class="hint">공을 눌러 슛! 키보드로는 <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> · 틀리면 그 문제에서는 다시 찰 수 없어요.</span><button class="primary" id="start">킥오프! ⚽</button></div>
@@ -145,7 +146,7 @@ footer{text-align:center;color:var(--muted);font-size:.83rem;padding:22px}
     <div class="pitch" id="pitch">
       <div class="box"></div><div class="spotmark"></div>
       <div class="goal" id="goal"><div class="keeper" id="keeper"><div class="k-in"><span class="k-head">🤖</span><span class="k-body"></span><span class="k-glove l">🧤</span><span class="k-glove r">🧤</span></div></div></div>
-      <div class="question"><div class="q-label" id="qLabel">뜻에 맞는 영어 단어 공을 차세요</div><div class="q-word" id="qWord">-</div></div>
+      <div class="question"><div class="q-label" id="qLabel">영어 뜻풀이에 맞는 단어 공을 차세요</div><div class="q-word" id="qWord">-</div></div>
       <div class="balls" id="balls"></div>
       <div class="timer" id="timerWrap"><span id="timer"></span></div>
       <div class="banner hidden" id="banner"></div>
@@ -163,14 +164,18 @@ const words=[
 {u:7,w:"art",k:"예술, 미술"},{u:7,w:"tunnel",k:"터널"},{u:7,w:"step",k:"계단"},{u:7,w:"purpose",k:"목적"},{u:7,w:"colorful",k:"색깔이 화려한, 다채로운"},{u:7,w:"tour guide",k:"관광 가이드"},{u:7,w:"tour",k:"여행"},{u:7,w:"proud",k:"자랑스러운"},{u:7,w:"mural",k:"벽화"},{u:7,w:"wonderful",k:"아주 멋진, 훌륭한"},{u:7,w:"terrible",k:"끔찍한, 형편없는"},{u:7,w:"amazed",k:"놀란, 감탄한"},{u:7,w:"embarrassed",k:"당황한, 창피한"},{u:7,w:"paintbrush",k:"붓"},{u:7,w:"painter",k:"화가"},{u:7,w:"stripe",k:"줄무늬"},{u:7,w:"spot",k:"점, 반점"},{u:7,w:"necessary",k:"필요한, 필수의"},{u:7,w:"express",k:"표현하다"},{u:7,w:"interested",k:"관심 있는, 흥미를 느끼는"},
 {u:8,w:"scared",k:"무서워하는, 겁먹은"},{u:8,w:"situation",k:"상황, 처지"},{u:8,w:"human",k:"인간, 사람"},{u:8,w:"particular",k:"특정한"},{u:8,w:"react",k:"반응하다"},{u:8,w:"scream",k:"비명을 지르다, 소리치다"},{u:8,w:"feeling",k:"느낌, 감정"},{u:8,w:"shake",k:"흔들다"},{u:8,w:"purr",k:"(고양이가) 가르랑거리다"},{u:8,w:"wag",k:"(꼬리를) 흔들다"},{u:8,w:"friendly",k:"친절한, 다정한"},{u:8,w:"fair",k:"공정한, 공평한"},{u:8,w:"regret",k:"후회하다"},{u:8,w:"peaceful",k:"평화로운, 평온한"},{u:8,w:"mood",k:"기분, 분위기"},{u:8,w:"nervous",k:"긴장되는, 불안해하는"},{u:8,w:"apologize",k:"사과하다"},{u:8,w:"forgive",k:"용서하다"},{u:8,w:"promise",k:"약속하다"},{u:8,w:"slither",k:"스르르 가다"}
 ];
+const EN={"wake up":"to stop sleeping","yawn":"to open your mouth wide because you are tired or bored","healthy":"strong and not sick","rest":"a time when you relax or sleep after being active","bone":"one of the hard white parts inside your body","muscle":"a part of your body that helps you move and makes you strong","brain":"the part inside your head that you think with","remember":"to keep something in your mind and not forget it","reason":"the cause of something; why it happens","sleepy":"tired and ready to go to sleep","snore":"to make loud breathing noises while you sleep","shy":"nervous and quiet around people you don't know","choice":"something you pick from two or more things","happen":"to take place","idea":"a thought or plan that you have in your mind","shocked":"very surprised and upset","secret":"something you do not tell other people","voice":"the sound you make when you speak or sing","positive":"hopeful and thinking about good things","negative":"thinking about bad things; not hopeful",
+"art":"paintings, drawings and other beautiful things people make","tunnel":"a long passage under the ground or through a mountain","step":"one of the flat places on stairs where you put your foot","purpose":"what something is for; the goal of doing it","colorful":"having many bright colors","tour guide":"a person whose job is to show visitors around a place","tour":"a trip to visit different places","proud":"feeling happy about something good that you or others did","mural":"a large painting on a wall","wonderful":"extremely good and enjoyable","terrible":"very, very bad","amazed":"very surprised in a good way","embarrassed":"feeling silly because other people saw your mistake","paintbrush":"a tool with soft hairs used to put paint on things","painter":"a person who paints pictures","stripe":"a long, thin line of color","spot":"a small round mark","necessary":"needed; you must have it","express":"to show your feelings or thoughts with words or actions","interested":"wanting to know or learn more about something",
+"scared":"afraid","situation":"what is happening at a certain time and place","human":"a person, not an animal","particular":"one certain thing and not any other","react":"to do or say something because of what just happened","scream":"to shout in a very loud, high voice","feeling":"something you feel inside, like happiness or sadness","shake":"to move quickly up and down or from side to side","purr":"to make the soft, low sound of a happy cat","wag":"to move a tail quickly from side to side, like a happy dog","friendly":"kind and nice to other people","fair":"treating everyone in the same right way","regret":"to feel sorry about something you did","peaceful":"quiet and calm","mood":"the way you feel at a certain time","nervous":"worried or a little afraid about something","apologize":"to say that you are sorry","forgive":"to stop being angry with someone who did something wrong","promise":"to say that you will surely do something","slither":"to move by sliding the body along the ground, like a snake"};
+words.forEach(x=>x.e=EN[x.w]);
 const CPU={easy:{acc:.55,min:4.5,max:8,label:"쉬움"},normal:{acc:.75,min:2.8,max:5.5,label:"보통"},hard:{acc:.9,min:1.4,max:3.2,label:"어려움"}};
 const SPOTS=[.16,.39,.61,.84];
 const $=id=>document.getElementById(id);
-let diff="normal",target=5,mode="koen",secs=12,pool=[],deck=[],cur=null,opts=[],me=0,cpuScore=0,done=true,meOut=false,cpuOut=false,log=[],T={};
+let diff="normal",target=5,mode="def",secs=12,pool=[],deck=[],cur=null,opts=[],me=0,cpuScore=0,done=true,meOut=false,cpuOut=false,log=[],T={};
 
 function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
-function ansKey(){return mode==="koen"?"w":"k"}
+function ansKey(){return mode==="enko"?"k":"w"}
 function clearAll(){Object.values(T).forEach(t=>{clearTimeout(t);clearInterval(t)});T={}}
 function chips(id,cb){$(id).querySelectorAll("button").forEach(b=>b.onclick=()=>{$(id).querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));cb(b.dataset.v)})}
 chips("diff",v=>diff=v);chips("goals",v=>target=Number(v));
@@ -194,8 +199,8 @@ function newRound(){
   cur=nextWord();const k=ansKey(),correct=cur[k];
   const others=[...new Set(shuffle(words.filter(x=>x!==cur).map(x=>x[k]).filter(x=>x!==correct)))].slice(0,3);
   opts=shuffle([correct,...others]);
-  $("qLabel").textContent=mode==="koen"?"뜻에 맞는 영어 단어 공을 차세요":"영어 단어에 맞는 뜻 공을 차세요";
-  $("qWord").textContent=mode==="koen"?cur.k:cur.w;
+  $("qLabel").textContent=mode==="def"?"영어 뜻풀이에 맞는 단어 공을 차세요":mode==="koen"?"뜻에 맞는 영어 단어 공을 차세요":"영어 단어에 맞는 뜻 공을 차세요";
+  const qw=$("qWord");qw.textContent=mode==="def"?cur.e:mode==="koen"?cur.k:cur.w;qw.classList.toggle("def",mode==="def");
   const box=$("balls");box.innerHTML="";
   opts.forEach((o,i)=>{const b=document.createElement("button");b.className="ball";b.dataset.v=o;
     b.innerHTML=`<span class="orb">⚽</span><span class="lbl">${esc(o)}<kbd>${i+1}</kbd></span>`;b.onclick=()=>shoot(i);box.appendChild(b)});
